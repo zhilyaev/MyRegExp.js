@@ -7,7 +7,7 @@ let R1 = R[0]
 let R2 = R[1]
 let RC = '({x}{y})|({x|y}x)'
 
-let M = L + R2.split('').join(L) + L
+let M = L + RC.split('').join(L) + L
 let
     Mi = M
     .split('')
@@ -31,7 +31,6 @@ for (let i in M){
     // M[i] ∉ specL => i ∈ Mi
     if (!specL.includes(M[i])) {
         // i+1 Потому что ставим справа от символа
-        // stateMap.set(+i+1, [index++])
         console.log(`Установка состояния для ${M[i]}:`)
         merge(+i+1, [index++])
         // console.log(stateMap)

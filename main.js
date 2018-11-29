@@ -54,7 +54,12 @@ class MyRegExp {
                     const by  = this.markup[i]
                     if (this.debug) console.log(`from ${from} by ${by} to ${to}`)
                     let c = {}
-                    c[by] = to
+                    // Todo Время 6 утра, я еле живой
+                    try {
+                        c[by] = merge_array(to, (t[from][by] || []))
+                    } catch (e) {
+                        c[by] = to
+                    }
                     if (from in t) t[from] = Object.assign(t[from], c)
                     else t[from] = c
                 }
@@ -165,7 +170,7 @@ let RC = '(({x}{y})|({x|y}x))'
 //     new MyRegExp(r)
 // }*/
 let r = new MyRegExp(RC)
-
+console.log(r.table)
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow
 function merge_array(array1, array2) {

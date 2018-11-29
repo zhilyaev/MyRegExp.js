@@ -1,12 +1,47 @@
+class FSA {
+    constructor (Q=[], A=[], D=[], Qs=0, Qf=[]) {
+        this.Q = Q
+        this.A = A
+        this.D = D
+        this.Qs = Qs
+        this.Qf = Qf
+    }
+
+    toString () {
+        let r = [
+            "Тип КНА: " + this.constructor.name,
+            "Множество состояний: " + this.Q,
+            "Алфавит: " + this.A,
+            "Функции переходов (обычный): " + this.D,
+            "Функции переходов (ключ-знач): " + this.closure,
+            "Начальное состояние: " + this.Qs,
+            "Финальные состояния: " + this.Qf
+        ]
+        return r.join('\n')
+    }
+}
+class NFA extends FSA {
+
+}
+class DFA extends FSA {
+}
+
+function nfa2dfa (dfa, nfa) {
+    dfa.A = nfa.A
+    dfa.Qs = nfa.Qs
+
+}
+
 class MyRegExp {
     constructor (regexp) {
         this.regexp = regexp
         this.divider = '!'
         this.escapes = [this.divider, '{', '}', '(', ')', '|']
         this.map = new Map()
-        this.debug = true
+        this.debug = false
         this.buildBaseMap()
         this.circle()
+        this.nfa2dfa()
     }
     buildBaseMap () {
         let index = 0
@@ -45,6 +80,15 @@ class MyRegExp {
         }
         return r
     }
+    get finals () {
+        let r = []
+        for (let i=0;i in this.table;i++){
+            if (0 === Object.keys(this.table[i]).length) {
+                r.push(i)
+            }
+        }
+        return r
+    }
     get table () {
         let t = {}
         for (let i in this.markup) {
@@ -53,6 +97,11 @@ class MyRegExp {
                     const to = this.map.get(+i+1)
                     const by  = this.markup[i]
                     if (this.debug) console.log(`from ${from} by ${by} to ${to}`)
+                    for (let y of to){
+                        if (!(y in t)) {
+                            t[y] = {}
+                        }
+                    }
                     let c = {}
                     // Todo Время 6 утра, я еле живой
                     try {
@@ -162,15 +211,50 @@ class MyRegExp {
         }
         return state === Object.keys(this.table).length-1
     }
+
+    nfa2dfa () {
+        let query = [[0]]
+        let dfa = new Map()
+        let nfa = this.table
+        console.log(nfa)
+        console.log(Array.from(nfa))
+
+        for (let state of query) {
+            for (let s of state) {
+                if (!nfa[s]){
+                    console.warn(`Нет состояния ${s}`)
+                    break
+                }
+                for (let a of this.alphabet){
+                    if (!nfa[s][a]){
+                        console.warn(`Нет перехода по ${a} из ${s}`)
+                        break
+                    }
+
+                    if(!includes(query, nfa[s][a])){
+                        query.push(nfa[s][a])
+                    }
+
+                }
+            }
+        }
+
+        console.log(query)
+
+        for (let state in query) {
+            for (let a of this.alphabet) {
+
+            }
+        }
+    }
+
 }
 
 let R = ['{x}{y}', '{x|y}x']
 let RC = '(({x}{y})|({x|y}x))'
-// /*for (let r of R) {
-//     new MyRegExp(r)
-// }*/
 let r = new MyRegExp(RC)
-console.log(r.table)
+// let fsa = new FSA()
+// console.log(fsa.toString())
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow
 function merge_array(array1, array2) {
@@ -190,4 +274,29 @@ function merge_array(array1, array2) {
     }
 
     return result_array;
+}
+function includes(array, value) {
+    let f = false
+    for (let a of array) {
+        if(arraysEqual(a, value)){
+            f = true
+            break
+        }
+    }
+    return f
+}
+function arraysEqual(a, b) {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length != b.length) return false;
+
+    // If you don't care about the order of the elements inside
+    // the array, you should sort both arrays here.
+    // Please note that calling sort on an array will modify that array.
+    // you might want to clone your array first.
+
+    for (var i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
 }

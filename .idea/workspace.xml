@@ -21,55 +21,84 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
+          <entry key="py" value="2" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2195" />
+          <entry key="js" value="4941" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2195" />
+          <entry key="JavaScript" value="4941" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
-              <folding>
-                <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#circle#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#merge_array#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="286">
+                  <caret line="242" selection-start-line="242" selection-end-line="242" />
+                  <folding>
+                    <element signature="n#FSA#0" />
+                    <element signature="n#NFA#0" />
+                    <element signature="n#DFA#0" />
+                    <element signature="n#!!block;n#nfa2dfa#0" />
+                    <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
+                    <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
+                    <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
+                    <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
+                    <element signature="n#!!block;n#circle#0;n#MyRegExp#0" />
+                    <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
+                    <element signature="e#7038#7138#0" />
+                    <element signature="e#7220#7323#0" />
+                    <element signature="n#!!block;n#merge_array#0" />
+                    <element signature="n#!!block;n#arraysEqual#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/../NFA2DFA/fsa.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>M[i]</find>
+      <find>self.</find>
       <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>this.mar</replace>
+      <replace>this.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -176,12 +205,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543446810299</updated>
-      <workItem from="1543446819207" duration="12758000" />
+      <workItem from="1543446819207" duration="31340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12758000" />
+    <option name="totallyTimeSpent" value="31340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="1050" extended-state="6" />
@@ -193,7 +222,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.82391304" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.4326087" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -236,17 +265,32 @@
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../NFA2DFA/fsa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+        <state relative-caret-position="286">
+          <caret line="242" selection-start-line="242" selection-end-line="242" />
           <folding>
+            <element signature="n#FSA#0" />
+            <element signature="n#NFA#0" />
+            <element signature="n#DFA#0" />
+            <element signature="n#!!block;n#nfa2dfa#0" />
             <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#circle#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
+            <element signature="e#7038#7138#0" />
+            <element signature="e#7220#7323#0" />
             <element signature="n#!!block;n#merge_array#0" />
+            <element signature="n#!!block;n#arraysEqual#0" />
           </folding>
         </state>
       </provider>

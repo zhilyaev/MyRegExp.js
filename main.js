@@ -4,6 +4,7 @@ class MyRegExp {
         this.divider = '!'
         this.escapes = [this.divider, '{', '}', '(', ')', '|']
         this.map = new Map()
+        this.debug = true
         this.buildBaseMap()
         this.circle()
     }
@@ -14,7 +15,7 @@ class MyRegExp {
         for (let i in this.markup){
             // markup[i] ∉ escapes => i ∈ Mi
             if (!this.escapes.includes(this.markup[i])) {
-                console.log(`Установка состояния для ${this.markup[i]}:`)
+                if (this.debug) console.log(`Установка состояния для ${this.markup[i]}:`)
                 // i+1 Потому что ставим справа от символа
                 this.fill(+i+1, [index++])
             }
@@ -23,9 +24,9 @@ class MyRegExp {
     fill (i, states=[]) {
         let a = this.map.get(i) || []
         let c = merge_array(a, states)
-        console.log(`Добавить в [${i}] => [${a} + ${states}]`)
+        if (this.debug) console.log(`Добавить в [${i}] => [${a} + ${states}]`)
         this.map.set(i, c)
-        console.log(this.map)
+        if (this.debug) console.log(this.map)
     }
     get markup () {
         return this.divider + this.regexp.split('').join(this.divider) + this.divider
@@ -51,7 +52,7 @@ class MyRegExp {
                 for (const from of this.map.get(+(i-1))) {
                     const to = this.map.get(+i+1)
                     const by  = this.markup[i]
-                    // console.log(`from ${from} by ${by} to ${to}`)
+                    if (this.debug) console.log(`from ${from} by ${by} to ${to}`)
                     let c = {}
                     c[by] = to
                     if (from in t) t[from] = Object.assign(t[from], c)
@@ -63,7 +64,6 @@ class MyRegExp {
     }
     circle () {
         let rule1 = []
-        let rule1Points = []
 
         let rule2 = []
         let rule3 = []
@@ -73,25 +73,21 @@ class MyRegExp {
         
         let M = this.markup
         for (let i in M) {
+            i = parseInt(i)
             /*
             * Индекс места перед любыми скобками распространяется
             * на начальные места всех дизъюнктивных членов,
             * записанных в этих скобках.
             * */
             if ('(' === M[i] || '{' === M[i]) {
-                rule1.push(this.map.get(+(i-1)))
-                rule1Points.push(+i+1)
+                rule1.push(this.map.get(+(i-1)) || [])
+                this.fill(+i+1, rule1[rule1.length-1])
             }
             if ('|' === M[i] && rule1.length>0){
-                rule1Points.push(+i+1)
+                this.fill(+i+1, rule1[rule1.length-1])
             }
-            if ((')' === M[i] || '}' === M[i]) && rule1Points.length>0) {
-                let states = rule1.pop()
-                for (let p of rule1Points){
-                    console.log('~~~~~~~~~~~~~\nRule 1')
-                    this.fill(p, states)
-                }
-                rule1Points = []
+            if ((')' === M[i] || '}' === M[i]) && rule1.length>0) {
+                rule1.pop()
             }
             /*
             * Индекс конечного места любого дизъюнктивного члена,
@@ -108,7 +104,7 @@ class MyRegExp {
             }
             if ((')' === M[i] || '}' === M[i]) && rule2.length>0) {
                 let c = merge_array(rule2.pop(), this.map.get(+(i-1)))
-                console.log('~~~~~~~~~~~~~\nRule 2')
+                if (this.debug) console.log('~~~~~~~~~~~~~\nRule 2')
                 this.fill(+i+1, c)
             }
             /*
@@ -122,7 +118,7 @@ class MyRegExp {
                 rule3.push(this.map.get(+(i-1)))
             }
             if ('}' === M[i]) {
-                console.log('~~~~~~~~~~~~~\nRule 3')
+                if (this.debug) console.log('~~~~~~~~~~~~~\nRule 3')
                 this.fill(+i+1, rule3.pop())
             }
             /*
@@ -144,28 +140,31 @@ class MyRegExp {
                 rule4To.push(p)
             }
             if ('}' === M[i]) {
-                console.log('~~~~~~~~~~~~~\nRule 4')
+                if (this.debug) console.log('~~~~~~~~~~~~~\nRule 4')
                 let c = merge_array(rule4.pop(), this.map.get(+(i-1)))
                 let p = rule4To.pop()
                 for (let v of p) {
                     this.fill(v, c)
                 }
             }
-            /*
-            * Индекс который стоит между скобками наследует индексы от начального состояния скобки слева
-             */
         }
     }
 
-
+    test (input='') {
+        let state = 0
+        for (let a of input) {
+            state = this.table[state][a]
+        }
+        return state === Object.keys(this.table).length-1
+    }
 }
 
 let R = ['{x}{y}', '{x|y}x']
+let RC = '(({x}{y})|({x|y}x))'
 // /*for (let r of R) {
 //     new MyRegExp(r)
 // }*/
-let r = new MyRegExp(R[1])
-console.log(r.table)
+let r = new MyRegExp(RC)
 
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow

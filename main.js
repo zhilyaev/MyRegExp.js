@@ -50,7 +50,7 @@ class MyRegExp {
         for (let i in this.markup){
             // markup[i] ∉ escapes => i ∈ Mi
             if (!this.escapes.includes(this.markup[i])) {
-                if (this.debug) console.log(`Установка состояния для ${this.markup[i]}:`)
+                if (this.debug) console.log(`\tУстановка состояния для ${this.markup[i]}:`)
                 // i+1 Потому что ставим справа от символа
                 this.fill(+i+1, [index++])
             }
@@ -84,7 +84,7 @@ class MyRegExp {
         let r = []
         for (let i=0;i in this.table;i++){
             if (0 === Object.keys(this.table[i]).length) {
-                r.push(i)
+                r.push(i+'')
             }
         }
         return r
@@ -212,8 +212,12 @@ class MyRegExp {
         return state === Object.keys(this.table).length-1
     }
 
+    normilizeDFA () {
+
+    }
+
     nfa2dfa () {
-        let query = [[0]]
+        let query = [['0']]
         let dfa = {}
         let nfa = this.table
         console.log(nfa)
@@ -221,23 +225,45 @@ class MyRegExp {
         for (let state of query) {
             for (let s of state) {
                 if (!nfa[s]){
-                    console.warn(`Нет состояния ${s}`)
+                    console.warn(`[WTF] Нет состояния ${s}`)
                     break
                 }
+                let U = []
                 for (let a of this.alphabet){
-                    if (!nfa[s][a]){
-                        console.warn(`Нет перехода по ${a} из ${s}`)
+                    let nsa = nfa[s][a]
+                    if (!nsa){
+                        console.warn(`\tНет перехода по ${a} из ${s}`)
+                        console.log(this.finals)
+                        if (this.finals.includes(s)){
+                            console.warn(`\tПотому что ${s} это финальное состояние`)
+                        }
                         break
                     }
 
-                    console.log(query)
-                    if(!includes(query, nfa[s][a])){
-                        query.push(nfa[s][a])
+                    if (!U.includes(nsa)){
+                        U.push(nsa)
+                    }
+
+                    if(!(state in dfa)){
+                        dfa[state] = {}
+                    }
+
+                    dfa[state][a] = `${U}`
+                    // U = [ [1], [3,5], [] ]
+                    // `U` = '1,3,5'
+                    // trueUnion = [1,3,5]
+                    let trueUnion = `${U}`.split(',')
+
+                    if(!includes(query, trueUnion)){
+                        query.push(trueUnion)
                     }
 
                 }
             }
         }
+        console.log(query)
+        console.log(dfa)
+
     }
 
 }

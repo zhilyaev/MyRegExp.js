@@ -214,10 +214,9 @@ class MyRegExp {
 
     nfa2dfa () {
         let query = [[0]]
-        let dfa = []
+        let dfa = {}
         let nfa = this.table
         console.log(nfa)
-        console.log(Array.from(nfa))
 
         for (let state of query) {
             for (let s of state) {
@@ -231,25 +230,7 @@ class MyRegExp {
                         break
                     }
 
-                    let destinations = []
-                    let finals = []
-                    for (let ns of nfa[s][a]) {
-                        if (!destinations.includes(ns)){
-                            destinations.push(ns)
-                        }
-                    }
-
-                    if (0===destinations.length) {
-                        finals.push(null)
-                    } else {
-                        for (let d of destinations)
-                            for (let v of d)
-                                if (!finals.includes(v))
-                                    finals.push(v)
-                    }
-
-                    dfa[s][this.alphabet.indexOf(a)] = finals
-
+                    console.log(query)
                     if(!includes(query, nfa[s][a])){
                         query.push(nfa[s][a])
                     }

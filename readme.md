@@ -47,3 +47,8 @@
                 2. `if U ∉ query then query += U`
 
 4. Переименовать DFA
+
+# Run
+```
+$ node main.js
+```

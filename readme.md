@@ -39,7 +39,7 @@
             1. `a = A[j]`
             2. Установка множества `U = []`
             3. Цикл по `dfaState`:
-                1. `nfaState = dfaState`
+                1. `nfaState = dfaState[k]`
                 2. `if nfaState ∈ nfaFinals AND nfaState ∉ dfaFinals then dfaFinals += dfaState`
                 3. `if NFA[nfaState][a] ∉ U then U += NFA[nfaState][a]`
             4. `if U ∉ Ø`:

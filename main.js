@@ -66,47 +66,32 @@ class MyRegExp {
         console.log(nfa)
 
         // state = [5, 3, 1]
-        for (let newState of query) {
+        for (let dfaState of query) {
             // JS не позволит присваивать не объявленные поля
-            if(!(newState in dfa)) {
-                dfa[newState] = {}
+            if(!(dfaState in dfa)) {
+                dfa[dfaState] = {}
             }
+            console.log(`\tПросматриваемое новое состояние: ${dfaState}`)
             for (let a of this.alphabet) {
+                console.log('\t\t~~~~~~~~~~~~~~~~~')
+                console.log(`\t\tПо букве ${a}`)
                 let U = [] // Массив обьединений
-                for (let s of newState) {
-                    if (!nfa[s]){
-                        if(this.debug)console.error(`[WTF] Нет состояния ${s}`)
-                        break
+                console.log(`\t\tНачинаем обьединение`)
+                for (let nfaState of dfaState) {
+                    console.log(`\t\t\tПросматриваемое состояние ${nfaState} по ${a}`)
+                    if (this.finals.includes(nfaState)) console.log(`\t\t\t\t ${nfaState} это финальное состояние у него нет переходов`)
+                    if (!U.includes(nfa[nfaState][a]) && a in nfa[nfaState]){
+                        U.push(nfa[nfaState][a])
                     }
-                    // nsa = nfa.3.x => [3, 5]
-                    let nsa = nfa[s][a]
-
-                    if (!nsa) {
-                        console.log(`Нет перехода из ${s} по ${a}`)
-                        if (this.finals.includes(s)){
-                            console.log(`Потому что ${s} это финальное состояние`)
-                        }
-                        break
-                    }
-
-                    for (let state of nsa) {
-                        if (!U.includes(state)){
-                            U.push(state)
-                        }
-                    }
-                    console.log(`[${s}.${a}]U = [${U}]`)
                 }
-
+                console.log(`\t\tU = ${U}`)
                 if (U.length>0){
-                    dfa[newState][a] = `${U}`
+                    dfa[dfaState][a] = `${U}`
                     let trueUnion = `${U}`.split(',')
-                    // Внимание JS! ([] === []) => false
                     if(!includes(query, trueUnion)){
                         query.push(trueUnion)
                     }
                 }
-
-
             }
         }
         if (!this.debug) {
@@ -283,7 +268,7 @@ class MyRegExp {
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let r = new MyRegExp(R[1])
+let r = new MyRegExp(R)
 console.log(r.test('y'))
 
 

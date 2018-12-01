@@ -57,14 +57,6 @@ class MyRegExp {
         }
         return t
     }
-    // Карта переименований
-    get renames () {
-        let namespace = new Map()
-        for (let i in this.query) {
-            namespace.set(`${this.query[i]}`, i)
-        }
-        return namespace
-    }
     // Получить DFA из NFA
     get dfa () {
         let query = [['0']]
@@ -302,7 +294,7 @@ class MyRegExp {
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let r = new MyRegExp(R[1])
+let r = new MyRegExp(R)
 console.log(r.test('xyxx'))
 
 

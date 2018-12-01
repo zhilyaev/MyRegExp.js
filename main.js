@@ -19,7 +19,7 @@ class MyRegExp {
         }
         return r
     }
-    // Множество финальных состояний
+    // Множество финальных состояний NFA
     get nfaFinals () {
         let r = []
         for (let i=0;i in this.nfa;i++){
@@ -107,14 +107,13 @@ class MyRegExp {
             console.log(`DFA Финальные состояния:`)
             console.log(this.dfaFinals)
         }
-        this.query = query
         let rename = this.renameDFA(dfa, this.dfaFinals)
         this.dfaFinals = rename.finals
         return rename.dfa
     }
 
-    constructor (regexp) {
-        this.debug = false
+    constructor (regexp, debug=false) {
+        this.debug = debug
         this.countRegexp = 1
         this.regexp = regexp
         if (Array.isArray(regexp)){
@@ -131,7 +130,6 @@ class MyRegExp {
         this.map = new Map()
         this.buildBaseMap()
         this.circle()
-        this.query = []
         this.dfaFinals = []
     }
 
@@ -294,8 +292,9 @@ class MyRegExp {
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let r = new MyRegExp(R)
-console.log(r.test('xyxx'))
+let LR = '({x|c}|n)(b|d){a|k}y'
+let r = new MyRegExp(LR, true)
+console.log(r.test('xccxbakkay'))
 
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow

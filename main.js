@@ -268,7 +268,7 @@ class MyRegExp {
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let r = new MyRegExp(R)
+let r = new MyRegExp(R[0])
 console.log(r.test('y'))
 
 

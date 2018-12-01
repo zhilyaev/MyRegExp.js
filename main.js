@@ -290,7 +290,6 @@ class MyRegExp {
     }
 
 }
-// TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow
 function merge_array(array1, array2) {
     var result_array = [];
     var arr = array1.concat(array2);

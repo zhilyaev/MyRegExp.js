@@ -1,77 +1,16 @@
-class FSA {
-    constructor (Q=[], A=[], D=[], Qs=0, Qf=[]) {
-        this.Q = Q
-        this.A = A
-        this.D = D
-        this.Qs = Qs
-        this.Qf = Qf
-    }
-
-    toString () {
-        let r = [
-            "Тип КНА: " + this.constructor.name,
-            "Множество состояний: " + this.Q,
-            "Алфавит: " + this.A,
-            "Функции переходов (обычный): " + this.D,
-            "Функции переходов (ключ-знач): " + this.closure,
-            "Начальное состояние: " + this.Qs,
-            "Финальные состояния: " + this.Qf
-        ]
-        return r.join('\n')
-    }
-}
-class NFA extends FSA {
-
-}
-class DFA extends FSA {
-}
-
-function nfa2dfa (dfa, nfa) {
-    dfa.A = nfa.A
-    dfa.Qs = nfa.Qs
-
-}
-
 class MyRegExp {
-    constructor (regexp) {
-        this.regexp = regexp
-        this.divider = '!'
-        this.escapes = [this.divider, '{', '}', '(', ')', '|']
-        this.map = new Map()
-        this.debug = false
-        this.buildBaseMap()
-        this.circle()
-        this.nfa2dfa()
-    }
-    buildBaseMap () {
-        let index = 0
-        this.map.set(this.markupIndexes[0], [index++])
-        // Растановка базовых состояний (после символа)
-        for (let i in this.markup){
-            // markup[i] ∉ escapes => i ∈ Mi
-            if (!this.escapes.includes(this.markup[i])) {
-                if (this.debug) console.log(`\tУстановка состояния для ${this.markup[i]}:`)
-                // i+1 Потому что ставим справа от символа
-                this.fill(+i+1, [index++])
-            }
-        }
-    }
-    fill (i, states=[]) {
-        let a = this.map.get(i) || []
-        let c = merge_array(a, states)
-        if (this.debug) console.log(`Добавить в [${i}] => [${a} + ${states}]`)
-        this.map.set(i, c)
-        if (this.debug) console.log(this.map)
-    }
+    // Расствляем палочки из Разметки РВ
     get markup () {
         return this.divider + this.regexp.split('').join(this.divider) + this.divider
     }
+    // Индексы палочек
     get markupIndexes () {
-       return this.markup
-        .split('')
-        .map((el, i) => (this.divider === el) ? i : false)
-        .filter(el => false !== el)
+        return this.markup
+            .split('')
+            .map((el, i) => (this.divider === el) ? i : false)
+            .filter(el => false !== el)
     }
+    // Алфавит
     get alphabet () {
         let r = []
         for (let v of this.regexp) {
@@ -80,23 +19,25 @@ class MyRegExp {
         }
         return r
     }
+    // Множество финальных состояний
     get finals () {
         let r = []
-        for (let i=0;i in this.table;i++){
-            if (0 === Object.keys(this.table[i]).length) {
+        for (let i=0;i in this.nfa;i++){
+            if (0 === Object.keys(this.nfa[i]).length) {
                 r.push(i+'')
             }
         }
         return r
     }
-    get table () {
+    // Получить NFA из разметки
+    get nfa () {
         let t = {}
         for (let i in this.markup) {
             if (!this.escapes.includes(this.markup[i])) {
                 for (const from of this.map.get(+(i-1))) {
                     const to = this.map.get(+i+1)
                     const by  = this.markup[i]
-                    if (this.debug) console.log(`from ${from} by ${by} to ${to}`)
+                    //if (this.debug) console.log(`from ${from} by ${by} to ${to}`)
                     for (let y of to){
                         if (!(y in t)) {
                             t[y] = {}
@@ -116,6 +57,113 @@ class MyRegExp {
         }
         return t
     }
+    // Получить DFA из NFA
+    get dfa () {
+        let query = [['0']]
+        let dfa = {}
+        let nfa = this.nfa
+        console.log('NFA:')
+        console.log(nfa)
+
+        // state = [5, 3, 1]
+        for (let newState of query) {
+            // JS не позволит присваивать не объявленные поля
+            if(!(newState in dfa)) {
+                dfa[newState] = {}
+            }
+            for (let a of this.alphabet) {
+                let U = [] // Массив обьединений
+                for (let s of newState) {
+                    if (!nfa[s]){
+                        if(this.debug)console.error(`[WTF] Нет состояния ${s}`)
+                        break
+                    }
+                    // nsa = nfa.3.x => [3, 5]
+                    let nsa = nfa[s][a]
+
+                    if (!nsa) {
+                        console.log(`Нет перехода из ${s} по ${a}`)
+                        if (this.finals.includes(s)){
+                            console.log(`Потому что ${s} это финальное состояние`)
+                        }
+                        break
+                    }
+
+                    for (let state of nsa) {
+                        if (!U.includes(state)){
+                            U.push(state)
+                        }
+                    }
+                    console.log(`[${s}.${a}]U = [${U}]`)
+                }
+
+                if (U.length>0){
+                    dfa[newState][a] = `${U}`
+                    let trueUnion = `${U}`.split(',')
+                    // Внимание JS! ([] === []) => false
+                    if(!includes(query, trueUnion)){
+                        query.push(trueUnion)
+                    }
+                }
+
+
+            }
+        }
+        if (!this.debug) {
+            console.log(`Очередь построения DFA:`)
+            console.log(query)
+            console.log(`DFA:`)
+            console.log(dfa)
+        }
+        this.query = query
+        return this.renameDFA(dfa)
+    }
+
+    constructor (regexp) {
+        this.debug = false
+        this.countRegexp = 1
+        this.regexp = regexp
+        if (Array.isArray(regexp)){
+            this.countRegexp = regexp.length
+            let r = '('
+            for (let i in regexp) {
+                r += (0 === +i) ? `(${regexp[i]})` : `|(${regexp[i]})`
+            }
+            r += ')'
+            this.regexp = r
+        }
+        this.divider = '!'
+        this.escapes = [this.divider, '{', '}', '(', ')', '|']
+        this.map = new Map()
+        this.buildBaseMap()
+        this.circle()
+        this.query = []
+    }
+
+
+    // Расстановка терминальных состояний
+    buildBaseMap () {
+        let index = 0
+        this.map.set(this.markupIndexes[0], [index++])
+        // Растановка базовых состояний (после символа)
+        for (let i in this.markup){
+            // markup[i] ∉ escapes => i ∈ Mi
+            if (!this.escapes.includes(this.markup[i])) {
+                if (this.debug) console.log(`\tУстановка состояния для ${this.markup[i]}:`)
+                // i+1 Потому что ставим справа от символа
+                this.fill(+i+1, [index++])
+            }
+        }
+    }
+    // Вспомогательная функция для слияния map
+    fill (i, states=[]) {
+        let a = this.map.get(i) || []
+        let c = merge_array(a, states)
+        if (this.debug) console.log(`\tДобавить в [${i}] => [${a} + ${states}]`)
+        this.map.set(i, c)
+        if (this.debug) console.log(this.map)
+    }
+    // Функция построения автоматной разметки
     circle () {
         let rule1 = []
 
@@ -203,76 +251,41 @@ class MyRegExp {
             }
         }
     }
-
-    test (input='') {
-        let state = 0
+    // Функция проверки КНА
+    test (input) {
+        let state = '0'
         for (let a of input) {
-            state = this.table[state][a]
+            console.log(`${state} by ${a}`)
+            state = this.dfa[state][a]
         }
-        return state === Object.keys(this.table).length-1
+        return state > 0
     }
-
-    normilizeDFA () {
-
-    }
-
-    nfa2dfa () {
-        let query = [['0']]
+    // Переименование DFA
+    renameDFA (DFA) {
         let dfa = {}
-        let nfa = this.table
-        console.log(nfa)
-
-        for (let state of query) {
-            for (let s of state) {
-                if (!nfa[s]){
-                    console.warn(`[WTF] Нет состояния ${s}`)
-                    break
-                }
-                let U = []
-                for (let a of this.alphabet){
-                    let nsa = nfa[s][a]
-                    if (!nsa){
-                        console.warn(`\tНет перехода по ${a} из ${s}`)
-                        console.log(this.finals)
-                        if (this.finals.includes(s)){
-                            console.warn(`\tПотому что ${s} это финальное состояние`)
-                        }
-                        break
-                    }
-
-                    if (!U.includes(nsa)){
-                        U.push(nsa)
-                    }
-
-                    if(!(state in dfa)){
-                        dfa[state] = {}
-                    }
-
-                    dfa[state][a] = `${U}`
-                    // U = [ [1], [3,5], [] ]
-                    // `U` = '1,3,5'
-                    // trueUnion = [1,3,5]
-                    let trueUnion = `${U}`.split(',')
-
-                    if(!includes(query, trueUnion)){
-                        query.push(trueUnion)
-                    }
-
-                }
-            }
+        let namespace = new Map()
+        for (let i in this.query) {
+            dfa[i] = {}
+            namespace.set(`${this.query[i]}`, i)
         }
-        console.log(query)
+        let i = 0
+        for (let s of Object.keys(DFA)) {
+            for (let a of Object.keys(DFA[s])){
+                dfa[i][a] = namespace.get(DFA[s][a])
+            }
+            i++
+        }
+        console.log('Rename DFA:')
         console.log(dfa)
-
+        return dfa
     }
 
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let RC = '(({x}{y})|({x|y}x))'
-let r = new MyRegExp(RC)
-// let fsa = new FSA()
-// console.log(fsa.toString())
+let r = new MyRegExp(R[1])
+console.log(r.test('y'))
+
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow
 function merge_array(array1, array2) {

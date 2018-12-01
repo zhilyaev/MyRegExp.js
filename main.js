@@ -20,7 +20,7 @@ class MyRegExp {
         return r
     }
     // Множество финальных состояний
-    get finals () {
+    get nfaFinals () {
         let r = []
         for (let i=0;i in this.nfa;i++){
             if (0 === Object.keys(this.nfa[i]).length) {
@@ -57,13 +57,21 @@ class MyRegExp {
         }
         return t
     }
+    // Карта переименований
+    get renames () {
+        let namespace = new Map()
+        for (let i in this.query) {
+            namespace.set(`${this.query[i]}`, i)
+        }
+        return namespace
+    }
     // Получить DFA из NFA
     get dfa () {
         let query = [['0']]
         let dfa = {}
         let nfa = this.nfa
-        console.log('NFA:')
-        console.log(nfa)
+        if (this.debug)console.log('NFA:')
+        if (this.debug)console.log(nfa)
 
         // state = [5, 3, 1]
         for (let dfaState of query) {
@@ -71,20 +79,25 @@ class MyRegExp {
             if(!(dfaState in dfa)) {
                 dfa[dfaState] = {}
             }
-            console.log(`\tПросматриваемое новое состояние: ${dfaState}`)
+            if (this.debug) console.log(`\tПросматриваемое новое состояние: ${dfaState}`)
             for (let a of this.alphabet) {
-                console.log('\t\t~~~~~~~~~~~~~~~~~')
-                console.log(`\t\tПо букве ${a}`)
+                if (this.debug)console.log('\t\t~~~~~~~~~~~~~~~~~')
+                if (this.debug)console.log(`\t\tПо букве ${a}`)
                 let U = [] // Массив обьединений
-                console.log(`\t\tНачинаем обьединение`)
+                if (this.debug) console.log(`\t\tНачинаем обьединение`)
                 for (let nfaState of dfaState) {
-                    console.log(`\t\t\tПросматриваемое состояние ${nfaState} по ${a}`)
-                    if (this.finals.includes(nfaState)) console.log(`\t\t\t\t ${nfaState} это финальное состояние у него нет переходов`)
+                    if (this.debug)console.log(`\t\t\tПросматриваемое состояние ${nfaState} по ${a}`)
+                    if (this.nfaFinals.includes(nfaState)){
+                        if (this.debug) console.log(`\t\t\t\t ${nfaState} это финальное состояние у него нет переходов`)
+                        if (!this.dfaFinals.includes(`${dfaState}`)) {
+                            this.dfaFinals.push(`${dfaState}`)
+                        }
+                    }
                     if (!U.includes(nfa[nfaState][a]) && a in nfa[nfaState]){
                         U.push(nfa[nfaState][a])
                     }
                 }
-                console.log(`\t\tU = ${U}`)
+                if (this.debug) console.log(`\t\tU = ${U}`)
                 if (U.length>0){
                     dfa[dfaState][a] = `${U}`
                     let trueUnion = `${U}`.split(',')
@@ -94,14 +107,18 @@ class MyRegExp {
                 }
             }
         }
-        if (!this.debug) {
+        if (this.debug) {
             console.log(`Очередь построения DFA:`)
             console.log(query)
             console.log(`DFA:`)
             console.log(dfa)
+            console.log(`DFA Финальные состояния:`)
+            console.log(this.dfaFinals)
         }
         this.query = query
-        return this.renameDFA(dfa)
+        let rename = this.renameDFA(dfa, this.dfaFinals)
+        this.dfaFinals = rename.finals
+        return rename.dfa
     }
 
     constructor (regexp) {
@@ -123,6 +140,7 @@ class MyRegExp {
         this.buildBaseMap()
         this.circle()
         this.query = []
+        this.dfaFinals = []
     }
 
 
@@ -238,38 +256,54 @@ class MyRegExp {
     }
     // Функция проверки КНА
     test (input) {
-        let state = '0'
+        let s = '0'
         for (let a of input) {
-            console.log(`${state} by ${a}`)
-            state = this.dfa[state][a]
+            s = this.dfa[s][a]
         }
-        return state > 0
+        return this.dfaFinals.includes(s)
     }
     // Переименование DFA
-    renameDFA (DFA) {
+    renameDFA (DFA, finals) {
         let dfa = {}
+        let dfaFins = []
         let namespace = new Map()
-        for (let i in this.query) {
-            dfa[i] = {}
-            namespace.set(`${this.query[i]}`, i)
-        }
         let i = 0
+        for (let s of Object.keys(DFA)) {
+            dfa[i] = {}
+            if (finals.includes(s) && !dfaFins.includes(i)){
+                dfaFins.push(i)
+            }
+            namespace.set(s, i)
+            i++
+        }
+        if (this.debug) console.log(namespace)
+        i = 0
         for (let s of Object.keys(DFA)) {
             for (let a of Object.keys(DFA[s])){
                 dfa[i][a] = namespace.get(DFA[s][a])
             }
             i++
         }
-        console.log('Rename DFA:')
-        console.log(dfa)
-        return dfa
+
+
+        if (this.debug){
+            console.log('Rename DFA:')
+            console.log(dfa)
+            console.log('Rename DFA Finals:')
+            console.log(dfaFins)
+        }
+        // this.dfaFinals = dfaFins
+        return {
+            dfa : dfa,
+            finals: dfaFins
+        }
     }
 
 }
 
 let R = ['{x}{y}', '{x|y}x']
-let r = new MyRegExp(R[0])
-console.log(r.test('y'))
+let r = new MyRegExp(R[1])
+console.log(r.test('xyxx'))
 
 
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow

@@ -34,12 +34,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="9298" />
+          <entry key="js" value="9850" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="9298" />
+          <entry key="JavaScript" value="9850" />
         </counts>
       </usages-collector>
     </session>
@@ -49,17 +49,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="270" column="25" selection-start-line="270" selection-start-column="25" selection-end-line="270" selection-end-column="25" />
+            <state relative-caret-position="225">
+              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
               <folding>
                 <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#finals#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#table#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#renames#0;n#MyRegExp#0" />
                 <element signature="e#3629#3653#0" />
                 <element signature="n#!!block;n#buildBaseMap#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#circle#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#merge_array#0" />
                 <element signature="n#!!block;n#includes#0" />
                 <element signature="n#!!block;n#arraysEqual#0" />
@@ -77,6 +80,7 @@
       <find>console.log</find>
       <find>dfa</find>
       <find>console.</find>
+      <find>finals</find>
     </findStrings>
     <replaceStrings>
       <replace>this.mar</replace>
@@ -187,12 +191,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543446810299</updated>
-      <workItem from="1543446819207" duration="61652000" />
+      <workItem from="1543446819207" duration="66432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61652000" />
+    <option name="totallyTimeSpent" value="66432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="1050" extended-state="6" />
@@ -256,17 +260,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="270" column="25" selection-start-line="270" selection-start-column="25" selection-end-line="270" selection-end-column="25" />
+        <state relative-caret-position="225">
+          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
           <folding>
             <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#finals#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#table#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#renames#0;n#MyRegExp#0" />
             <element signature="e#3629#3653#0" />
             <element signature="n#!!block;n#buildBaseMap#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#circle#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#merge_array#0" />
             <element signature="n#!!block;n#includes#0" />
             <element signature="n#!!block;n#arraysEqual#0" />

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="561914e5-f86f-4c69-a14e-75c58136d9b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/2iteration" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/array.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/input/iteration_or" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,41 +25,53 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="2iteration" value="1" />
+          <entry key="4" value="1" />
+          <entry key="array" value="1" />
           <entry key="iml" value="1" />
+          <entry key="iteration_or" value="1" />
           <entry key="md" value="1" />
           <entry key="py" value="2" />
           <entry key="xml" value="4" />
+          <entry key="{x}{y}" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="9997" />
-          <entry key="md" value="1825" />
+          <entry key="2iteration" value="8" />
+          <entry key="iteration_or" value="6" />
+          <entry key="js" value="10162" />
+          <entry key="json" value="13" />
+          <entry key="md" value="1830" />
+          <entry key="txt" value="16" />
+          <entry key="{x}{y}" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="9997" />
-          <entry key="Markdown" value="1825" />
+          <entry key="JSON" value="13" />
+          <entry key="JavaScript" value="10162" />
+          <entry key="Markdown" value="1830" />
+          <entry key="PLAIN_TEXT" value="39" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
+            <state relative-caret-position="293">
+              <caret line="343" column="38" selection-start-line="343" selection-start-column="38" selection-end-line="343" selection-end-column="38" />
               <folding>
                 <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
@@ -72,12 +89,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="566">
-                <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
+              <first_editor relative-caret-position="619">
+                <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
               </first_editor>
               <second_editor />
             </state>
@@ -107,8 +124,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/input/{x}{y}" />
+        <option value="$PROJECT_DIR$/input/2iteration" />
+        <option value="$PROJECT_DIR$/input/iteration_or" />
+        <option value="$PROJECT_DIR$/input/4" />
+        <option value="$PROJECT_DIR$/input/array.json" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -154,6 +176,11 @@
             <path>
               <item name="RegExp" type="b2602c69:ProjectViewProjectNode" />
               <item name="RegExp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegExp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RegExp" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -206,12 +233,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543446810299</updated>
-      <workItem from="1543446819207" duration="71009000" />
+      <workItem from="1543446819207" duration="72661000" />
     </task>
+    <task id="LOCAL-00001" summary="readme init">
+      <created>1543685339153</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543685339153</updated>
+    </task>
+    <task id="LOCAL-00002" summary="index">
+      <created>1543685441755</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543685441755</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71009000" />
+    <option name="totallyTimeSpent" value="72661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="32" width="1920" height="1050" extended-state="6" />
@@ -223,7 +265,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.21630435" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.50108695" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -243,6 +285,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="readme init" />
+    <MESSAGE value="index" />
+    <option name="LAST_COMMIT_MESSAGE" value="index" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -273,10 +320,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="619">
+            <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/{x}{y}">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/array.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/iteration_or">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/2iteration">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
+        <state relative-caret-position="293">
+          <caret line="343" column="38" selection-start-line="343" selection-start-column="38" selection-end-line="343" selection-end-column="38" />
           <folding>
             <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
@@ -290,16 +382,6 @@
             <element signature="n#!!block;n#includes#0" />
             <element signature="n#!!block;n#arraysEqual#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="566">
-            <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>

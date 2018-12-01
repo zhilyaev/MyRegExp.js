@@ -290,13 +290,6 @@ class MyRegExp {
     }
 
 }
-
-let R = ['{x}{y}', '{x|y}x']
-let LR = '({x|c}|n)(b|d){a|k}y'
-let r = new MyRegExp(LR, true)
-console.log(r.test('xccxbakkay'))
-
-
 // TODO Мне лень написать это нормально, работает и ладно. Спасибо stackOverflow
 function merge_array(array1, array2) {
     var result_array = [];
@@ -341,3 +334,11 @@ function arraysEqual(a, b) {
     }
     return true;
 }
+
+
+// Read from files
+const fs = require('fs')
+let regexp = new MyRegExp(fs.readFileSync('input/4', 'utf8'), true)
+let test = 'xccxbakkay'
+let b = regexp.test(test)
+console.log(`Строка ${test} ${b?'∈':'∉'} выражению ${regexp.regexp}`)

@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="561914e5-f86f-4c69-a14e-75c58136d9b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/input/2iteration" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/array.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/iteration_or" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
@@ -15,76 +16,40 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-797012067">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="2iteration" value="1" />
-          <entry key="4" value="1" />
-          <entry key="array" value="1" />
-          <entry key="iml" value="1" />
-          <entry key="iteration_or" value="1" />
-          <entry key="md" value="1" />
-          <entry key="py" value="2" />
-          <entry key="xml" value="4" />
-          <entry key="{x}{y}" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="XML" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="2iteration" value="8" />
-          <entry key="iteration_or" value="6" />
-          <entry key="js" value="10162" />
-          <entry key="json" value="13" />
-          <entry key="md" value="1830" />
-          <entry key="txt" value="16" />
-          <entry key="{x}{y}" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="10162" />
-          <entry key="Markdown" value="1830" />
-          <entry key="PLAIN_TEXT" value="39" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.js">
+        <entry file="file://$PROJECT_DIR$/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="343" column="38" selection-start-line="343" selection-start-column="38" selection-end-line="343" selection-end-column="38" />
+            <state relative-caret-position="464">
+              <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
               <folding>
-                <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#finals#0;n#MyRegExp#0" />
-                <element signature="e#3629#3653#0" />
-                <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#renameDFA#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#merge_array#0" />
-                <element signature="n#!!block;n#includes#0" />
                 <element signature="n#!!block;n#arraysEqual#0" />
+                <element signature="n#!!block;n#includes#0" />
+                <element signature="e#239#308#0" />
+                <element signature="e#478#488#0" />
+                <element signature="e#440#569#0" />
+                <element signature="n#!!block;n#printMarkup#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#buildTerminalStates#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#buildAutomatonMap#0;n#MyRegExp#0" />
+                <element signature="e#1627#1797#0" />
+                <element signature="e#1836#1924#0" />
+                <element signature="e#1964#2015#0" />
+                <element signature="e#2074#2099#0" />
+                <element signature="e#2104#2314#0" />
+                <element signature="n#!!block;n#nfa#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#testDFA#0;n#MyRegExp#0" />
+                <element signature="n#!!block;n#testNFA#0;n#MyRegExp#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tsconfig.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -93,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="619">
+              <first_editor relative-caret-position="720">
                 <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
               </first_editor>
               <second_editor />
@@ -102,6 +67,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -112,10 +84,23 @@
       <find>console.</find>
       <find>finals</find>
       <find>NFA:</find>
+      <find>divider</find>
+      <find>+i+1</find>
+      <find>fill</find>
+      <find>debug</find>
+      <find>constr</find>
+      <find>alphabet</find>
+      <find>this.map</find>
+      <find>query</find>
+      <find>this.dfa</find>
+      <find>let c</find>
     </findStrings>
     <replaceStrings>
       <replace>this.mar</replace>
       <replace>this.</replace>
+      <replace>i+1</replace>
+      <replace>separator</replace>
+      <replace>map</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -130,15 +115,19 @@
         <option value="$PROJECT_DIR$/input/iteration_or" />
         <option value="$PROJECT_DIR$/input/4" />
         <option value="$PROJECT_DIR$/input/array.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/main.js" />
+        <option value="$PROJECT_DIR$/main.ts" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="32" />
@@ -174,13 +163,13 @@
         <subPane>
           <expand>
             <path>
-              <item name="RegExp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RegExp" type="462c0819:PsiDirectoryNode" />
+              <item name="MyRegExp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRegExp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RegExp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RegExp" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
+              <item name="MyRegExp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRegExp" type="462c0819:PsiDirectoryNode" />
+              <item name="main.ts" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
@@ -206,10 +195,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -224,7 +220,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -234,6 +230,7 @@
       <option name="presentableId" value="Default" />
       <updated>1543446810299</updated>
       <workItem from="1543446819207" duration="72661000" />
+      <workItem from="1547137506032" duration="29010000" />
     </task>
     <task id="LOCAL-00001" summary="readme init">
       <created>1543685339153</created>
@@ -253,38 +250,37 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72661000" />
+    <option name="totallyTimeSpent" value="101671000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="32" width="1920" height="1050" extended-state="6" />
+    <frame x="62" y="35" width="1858" height="1045" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19903949" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15452538" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.50108695" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" weight="0.25714287" />
+      <window_info active="true" anchor="bottom" id="Quokka" visible="true" weight="0.3010989" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.65604395" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.46813187" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="readme init" />
@@ -313,30 +309,8 @@
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../NFA2DFA/fsa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="619">
-            <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input/{x}{y}">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../NFA2DFA/fsa.py" />
+    <entry file="file://$PROJECT_DIR$/input/{x}{y}" />
     <entry file="file://$PROJECT_DIR$/input/array.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -365,25 +339,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="720">
+            <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//home/diamon/projects/MyRegExp/main.ts">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/main.ts</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="361.5" y="344.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="343" column="38" selection-start-line="343" selection-start-column="38" selection-end-line="343" selection-end-column="38" />
+        <state>
+          <caret selection-end-line="84" selection-end-column="1" />
           <folding>
-            <element signature="n#!!block;n#markup#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#markupIndexes#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#alphabet#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#finals#0;n#MyRegExp#0" />
-            <element signature="e#3629#3653#0" />
-            <element signature="n#!!block;n#fill#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#test#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#renameDFA#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#merge_array#0" />
-            <element signature="n#!!block;n#includes#0" />
-            <element signature="n#!!block;n#arraysEqual#0" />
+            <element signature="e#149#327#0" />
+            <element signature="e#368#467#0" />
+            <element signature="e#509#564#0" />
+            <element signature="e#625#654#0" />
+            <element signature="e#661#881#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-680">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!block;n#arraysEqual#0" />
+            <element signature="n#!!block;n#includes#0" />
+            <element signature="e#239#308#0" />
+            <element signature="e#478#488#0" />
+            <element signature="e#440#569#0" />
+            <element signature="n#!!block;n#printMarkup#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#buildTerminalStates#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#buildAutomatonMap#0;n#MyRegExp#0" />
+            <element signature="e#1627#1797#0" />
+            <element signature="e#1836#1924#0" />
+            <element signature="e#1964#2015#0" />
+            <element signature="e#2074#2099#0" />
+            <element signature="e#2104#2314#0" />
+            <element signature="n#!!block;n#nfa#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#testDFA#0;n#MyRegExp#0" />
+            <element signature="n#!!block;n#testNFA#0;n#MyRegExp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

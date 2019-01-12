@@ -69,13 +69,12 @@ class MyRegExp {
             .map((el, i) => (this.separator === el) ? i : -1)
             .filter(el => -1 !== el);
         this.markupIndexes.forEach(index => this.map.set(index, []));
-        let M = this.markup.split('');
         // Шаг 1.2: Установка терминальных индексов
-        this.buildTerminalMap(M, this.map);
+        this.buildTerminalMap();
         // Шаг 1.3: Установка подчинений
-        this.buildAutomatonMap(M);
+        this.buildAutomatonMap();
         // Шаг 2: Из получившейся разметки построить NFA
-        this.nfa = this.buildNFA(M, this.map);
+        this.nfa = this.buildNFA();
         this.nfaFinals = this.map.get(this.markupIndexes[this.markupIndexes.length - 1]);
         // Шаг 3: Построить DFA по NFA
         this.dfa = this.buildDFA();
@@ -93,21 +92,24 @@ class MyRegExp {
         console.log();
     }
     // Расстановка терминальных состояний
-    buildTerminalMap(markup = this.markup.split(''), map = this.map) {
+    buildTerminalMap() {
+        let M = this.markup.split('');
+        let map = this.map;
         // Установка начального состояния
         let index = 0;
         map.set(0, [index++]);
         // Растановка базовых состояний (после символа)
-        markup
-            .forEach((el, i) => {
-            if (!this.escapes.includes(markup[i])) {
+        M.forEach((el, i) => {
+            if (!this.escapes.includes(M[i])) {
                 // i+1 Потому что ставим справа от символа
                 this.fill(i + 1, [index++]);
             }
         });
     }
     // Расстановка терминальных состояний
-    buildAutomatonMap(M = this.markup.split(''), map = this.map) {
+    buildAutomatonMap() {
+        let M = this.markup.split('');
+        let map = this.map;
         let rule1 = [];
         let rule2 = [];
         let rule3 = [];
@@ -192,7 +194,9 @@ class MyRegExp {
         });
     }
     // Получить NFA из разметки
-    buildNFA(M = this.markup.split(''), map = this.map) {
+    buildNFA() {
+        let M = this.markup.split('');
+        let map = this.map;
         let t = {};
         M.forEach((by, i) => {
             if (!this.escapes.includes(M[i])) {

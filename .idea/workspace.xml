@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="561914e5-f86f-4c69-a14e-75c58136d9b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/main.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,23 +17,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
+            <state relative-caret-position="180">
+              <caret line="225" column="60" selection-start-line="225" selection-start-column="60" selection-end-line="225" selection-end-column="60" />
               <folding>
                 <element signature="n#!!block;n#arraysEqual#0" />
                 <element signature="n#!!block;n#includes#0" />
-                <element signature="e#239#308#0" />
-                <element signature="e#478#488#0" />
-                <element signature="e#440#569#0" />
                 <element signature="n#!!block;n#printMarkup#0;n#MyRegExp#0" />
-                <element signature="n#!!block;n#buildTerminalStates#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#buildAutomatonMap#0;n#MyRegExp#0" />
-                <element signature="e#1627#1797#0" />
-                <element signature="e#1836#1924#0" />
-                <element signature="e#1964#2015#0" />
-                <element signature="e#2074#2099#0" />
-                <element signature="e#2104#2314#0" />
-                <element signature="n#!!block;n#nfa#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#testDFA#0;n#MyRegExp#0" />
                 <element signature="n#!!block;n#testNFA#0;n#MyRegExp#0" />
               </folding>
@@ -230,7 +216,8 @@
       <option name="presentableId" value="Default" />
       <updated>1543446810299</updated>
       <workItem from="1543446819207" duration="72661000" />
-      <workItem from="1547137506032" duration="29010000" />
+      <workItem from="1547137506032" duration="35765000" />
+      <workItem from="1547248106026" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="readme init">
       <created>1543685339153</created>
@@ -246,21 +233,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543685441755</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="typescript ready">
+      <created>1547168462827</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547168462827</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101671000" />
+    <option name="totallyTimeSpent" value="109025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="62" y="35" width="1858" height="1045" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15452538" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15618102" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" weight="0.25714287" />
-      <window_info active="true" anchor="bottom" id="Quokka" visible="true" weight="0.3010989" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.65604395" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -271,8 +262,10 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.46813187" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2747253" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Quokka" order="12" visible="true" weight="0.3010989" />
+      <window_info anchor="bottom" id="TypeScript" order="13" weight="0.25714287" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -285,7 +278,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="readme init" />
     <MESSAGE value="index" />
-    <option name="LAST_COMMIT_MESSAGE" value="index" />
+    <MESSAGE value="typescript ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="typescript ready" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -339,16 +333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="720">
-            <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JavaScript-modules-diagram//home/diamon/projects/MyRegExp/main.ts">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -357,11 +341,12 @@
           <nodes />
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="361.5" y="344.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="362.0" y="344.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -387,13 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -403,26 +381,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="357" column="32" selection-start-line="357" selection-start-column="32" selection-end-line="357" selection-end-column="32" />
+        <state relative-caret-position="180">
+          <caret line="225" column="60" selection-start-line="225" selection-start-column="60" selection-end-line="225" selection-end-column="60" />
           <folding>
             <element signature="n#!!block;n#arraysEqual#0" />
             <element signature="n#!!block;n#includes#0" />
-            <element signature="e#239#308#0" />
-            <element signature="e#478#488#0" />
-            <element signature="e#440#569#0" />
             <element signature="n#!!block;n#printMarkup#0;n#MyRegExp#0" />
-            <element signature="n#!!block;n#buildTerminalStates#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#buildAutomatonMap#0;n#MyRegExp#0" />
-            <element signature="e#1627#1797#0" />
-            <element signature="e#1836#1924#0" />
-            <element signature="e#1964#2015#0" />
-            <element signature="e#2074#2099#0" />
-            <element signature="e#2104#2314#0" />
-            <element signature="n#!!block;n#nfa#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#testDFA#0;n#MyRegExp#0" />
             <element signature="n#!!block;n#testNFA#0;n#MyRegExp#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="720">
+            <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

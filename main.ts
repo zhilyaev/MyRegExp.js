@@ -29,11 +29,11 @@ function includes(array, value) {
 class MyRegExp {
   private readonly regExp: string
   debug: boolean = false
-  readonly separator: string = '!'
-  readonly escapes = [this.separator, '{', '}', '(', ')', '|']
-  map: Map<number, number[]> = new Map()
-  maxMapDeep: number = 0
-  alphabet: string
+  private readonly separator: string = '!'
+  private readonly escapes = [this.separator, '{', '}', '(', ')', '|']
+  private map: Map<number, number[]> = new Map()
+  private maxMapDeep: number = 0
+  private readonly alphabet: string
   markup: string
   markupIndexes: number[]
   nfa: object
@@ -73,34 +73,31 @@ class MyRegExp {
   }
 
   // Расстановка терминальных состояний
-  private buildTerminalMap(
-    markup: string[] = this.markup.split(''),
-    map: Map<number, number[]> = this.map
-  ) {
+  private buildTerminalMap() {
+    let M: string[] = this.markup.split('')
+    let map: Map<number, number[]> = this.map
     // Установка начального состояния
     let index = 0
     map.set(0, [index++])
     // Растановка базовых состояний (после символа)
-    markup
-      .forEach((el: string, i: number) => {
-        if (!this.escapes.includes(markup[i])) {
-          // i+1 Потому что ставим справа от символа
-          this.fill(i + 1, [index++])
-        }
-      })
+    M.forEach((el: string, i: number) => {
+      if (!this.escapes.includes(M[i])) {
+        // i+1 Потому что ставим справа от символа
+        this.fill(i + 1, [index++])
+      }
+    })
   }
 
 
   // Расстановка терминальных состояний
-  private buildAutomatonMap(
-    M: string[] = this.markup.split(''),
-    map: Map<number, number[]> = this.map
-  ) {
-    let rule1 = []
+  private buildAutomatonMap() {
+    let M: string[] = this.markup.split('')
+    let map: Map<number, number[]> = this.map
 
+
+    let rule1 = []
     let rule2 = []
     let rule3 = []
-
     let rule4 = []
     let rule4To = []
 
@@ -182,10 +179,9 @@ class MyRegExp {
   }
 
   // Получить NFA из разметки
-  private buildNFA(
-    M: string[] = this.markup.split(''),
-    map: Map<number, number[]> = this.map
-  ) {
+  private buildNFA() {
+    let M: string[] = this.markup.split('')
+    let map: Map<number, number[]> = this.map
     let t = {}
     M.forEach((by: string, i: number) => {
       if (!this.escapes.includes(M[i])) {
@@ -333,19 +329,14 @@ class MyRegExp {
 
     this.markupIndexes.forEach(index => this.map.set(index, []))
 
-    let M = this.markup.split('')
-
-
     // Шаг 1.2: Установка терминальных индексов
-    this.buildTerminalMap(M, this.map)
-
+    this.buildTerminalMap()
 
     // Шаг 1.3: Установка подчинений
-    this.buildAutomatonMap(M)
-
+    this.buildAutomatonMap()
 
     // Шаг 2: Из получившейся разметки построить NFA
-    this.nfa = this.buildNFA(M, this.map)
+    this.nfa = this.buildNFA()
     this.nfaFinals = this.map.get(this.markupIndexes[this.markupIndexes.length - 1])
 
     // Шаг 3: Построить DFA по NFA

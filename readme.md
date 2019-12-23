@@ -52,6 +52,7 @@
 ```
 $ node main.js
 ```
+Вывод [здесь](https://github.com/zhilyaev/MyRegExp/actions?query=workflow%3A%22Node+CI%22)
 
 
 ### Недостатки
